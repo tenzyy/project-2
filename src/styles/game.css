@@ -71,16 +71,20 @@ html {
 }
 
 body {
+  background-color:black;
   align-items: center;
   display: flex;
   font-family: 'Silkscreen Web', monotype;
   height: 100vh;
   justify-content: center;
   width: 100%;
+  stroke: aqua;
+
 }
 
 h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem; 
   text-align: center;
+  text-shadow: 0 0 20px rgb(116, 255, 213), 0 10px 20px rgb(116, 255, 213);
 }
