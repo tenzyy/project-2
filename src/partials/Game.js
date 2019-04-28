@@ -4,7 +4,6 @@ import Paddle from "./Paddle";
 import Ball from "./Ball";
 import Score from "./Score";
 import { SVG_NS, KEYS } from "../settings";
-import { createPublicKey } from "crypto";
 
 
 export default class Game {
