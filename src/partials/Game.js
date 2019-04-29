@@ -5,11 +5,9 @@ import Ball from "./Ball";
 import Score from "./Score";
 import { SVG_NS, KEYS } from "../settings";
 
-
-
-
 export default class Game {
   constructor(element, width, height) {
+    this.alert = window.alert ('Press Ok to Start');
     this.element = element;
     this.width = width;
     this.height = height;
@@ -51,6 +49,7 @@ export default class Game {
         switch(event.key){
           case KEYS.spaceBar:
             this.pause = !this.pause;
+          break;
           case KEYS.a:
             this.song.play();
           break;

@@ -90,10 +90,6 @@ export default class Ball {
             this.goal(player2);
             this.direction = -1;
         }
-        else if(rightGoal || leftGoal){
-            this.direction === 10;
-            this.reset;
-        }
   
     } //end of render method 
 }
