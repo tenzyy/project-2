@@ -6,11 +6,14 @@ import Score from "./Score";
 import { SVG_NS, KEYS } from "../settings";
 
 
+
+
 export default class Game {
   constructor(element, width, height) {
     this.element = element;
     this.width = width;
     this.height = height;
+    this.song =new Audio( 'public/sounds/Off Limits.wav');
     this.gameElement = document.getElementById(this.element);
     this.board = new Board(this.width, this.height);
   
@@ -27,8 +30,8 @@ export default class Game {
         KEYS.a,
         KEYS.z
     );
-
-
+  
+  
       this.player2 = new Paddle(
         this.height,
         this.paddleWidth,
@@ -42,18 +45,23 @@ export default class Game {
         this.ball = new Ball(8, this.width, this.height);
         this.score1 = new Score(this.width / 2 - 50, 30,30);
         this.score2 = new Score(this.width / 2 + 25, 30,30);
-
+    
+  
        document.addEventListener('keydown', event => {
         switch(event.key){
           case KEYS.spaceBar:
             this.pause = !this.pause;
+          case KEYS.a:
+            this.song.play();
           break;
-       
         }
+
         console.log(this.pause);
       });
       // end of constructor
   }
+
+
     render() {
       if(this.pause){
         return;
@@ -65,6 +73,8 @@ export default class Game {
     svg.setAttributeNS(null, "height", this.height);
     svg.setAttributeNS(null, "viewBox", `0 0 ${this.width} ${this.height}`);
     this.gameElement.appendChild(svg);
+
+
       
         this.board.render(svg);
         this.player1.render(svg);

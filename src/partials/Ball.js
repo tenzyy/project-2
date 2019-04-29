@@ -2,8 +2,9 @@
 import { SVG_NS } from "../settings";
 
 export default class Ball {
-    constructor(radius, boardWidth, boardHeight) { // could add color and add this. color
+    constructor(radius, boardWidth, boardHeight, color) { 
         this.radius = radius;
+        this.color = color;
         this.boardWidth = boardWidth;
         this.boardHeight = boardHeight;
         this.direction = 1;
@@ -63,6 +64,7 @@ export default class Ball {
         player.score++;
         this.reset();
     }
+    
 
     render(svg, player1, player2){
         // update x position with vector direction 60* a second
@@ -76,7 +78,7 @@ export default class Ball {
         circle.setAttributeNS(null, 'r', this.radius);
         circle.setAttributeNS(null, 'cx', this.x); //x position 
         circle.setAttributeNS(null, 'cy', this.y);
-        circle.setAttributeNS(null, 'fill', '#FFED6D');
+        circle.setAttributeNS(null, 'fill', this.color);
         svg.appendChild(circle);
 
         const rightGoal = this.x + this.radius >= this.boardWidth;
@@ -87,6 +89,10 @@ export default class Ball {
         } else if (leftGoal){
             this.goal(player2);
             this.direction = -1;
+        }
+        else if(rightGoal || leftGoal){
+            this.direction === 10;
+            this.reset;
         }
   
     } //end of render method 

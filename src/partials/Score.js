@@ -1,11 +1,13 @@
 import { SVG_NS, KEYS } from "../settings";
 
+
 export default class Score {
   constructor(x, y, size) {
     this.x = x;
     this.y = y;
     this.size = size;
   }
+
   
   render(svg,score){
         let text = document.createElementNS(SVG_NS, 'text');
@@ -16,5 +18,11 @@ export default class Score {
         text.setAttributeNS(null,'fill','white');
         text.textContent = score;
         svg.appendChild(text);
+
+       
+
   }
+ 
+
+ 
 }
