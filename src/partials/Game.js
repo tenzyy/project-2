@@ -14,6 +14,12 @@ export default class Game {
     this.song =new Audio( 'public/sounds/Off Limits.wav');
     this.gameElement = document.getElementById(this.element);
     this.board = new Board(this.width, this.height);
+
+    this.song.addEventListener('ended', function() {
+      this.currentTime = 0;
+      this.play();
+    }, false);
+    this.song.play();
   
     this.paddleWidth = 8;
     this.paddleHeight = 56;
@@ -45,7 +51,7 @@ export default class Game {
         this.score2 = new Score(this.width / 2 + 25, 30,30);
     
   
-       document.addEventListener('keydown', event => {
+      document.addEventListener('keydown', event => {
         switch(event.key){
           case KEYS.spaceBar:
             this.pause = !this.pause;
@@ -59,7 +65,8 @@ export default class Game {
       });
       // end of constructor
   }
-
+    
+     
 
     render() {
       if(this.pause){
